@@ -60,7 +60,7 @@ class UserRepository {
 
             ).enqueue(object : Callback<UserInfo> {
                 override fun onFailure(call: Call<UserInfo>, t: Throwable) {
-                    Log.e("hahaha", "Api: Shit!!!")
+                    Log.e("hahaha", "Api: Shit!!!!")
                 }
 
                 override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
