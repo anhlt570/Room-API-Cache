@@ -8,6 +8,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.anle.democache.R
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_user_detail.*
+import kotlin.random.Random
 
 class UserDetailsActivity : AppCompatActivity(), LifecycleOwner {
 
@@ -21,8 +24,18 @@ class UserDetailsActivity : AppCompatActivity(), LifecycleOwner {
         }
 
         viewModel.userLiveData.observe(this, Observer {
-
+            tvName.text = it.name
+            tvMoney.text = "${it.money}"
+            Glide.with(this)
+                .load(it.avatar)
+                .into(imgAvatar)
+            tvCreatedDate.text = it.createdAt
         })
+
+        btnGenerateMoney.setOnClickListener {
+            val money = Random.nextInt(100, 1000)
+            viewModel.updateMoney(money)
+        }
     }
 
     companion object {

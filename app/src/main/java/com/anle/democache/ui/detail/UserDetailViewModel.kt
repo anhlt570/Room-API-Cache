@@ -11,4 +11,12 @@ class UserDetailViewModel : ViewModel() {
     fun init(id: Int) {
         userLiveData = userRepository.getUser(id)
     }
+
+    fun updateMoney(money:Int) {
+        userLiveData.value?.let {
+            userRepository.updateUser(it.apply {
+                this.money = money
+            })
+        }
+    }
 }

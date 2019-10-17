@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "users")
 data class UserInfo(
     @PrimaryKey
-    val id: Int,
-    val createdAt: String,
-    val name: String,
-    val avatar: String,
-    val money: Int,
-    val lastRefreshed: Long = System.currentTimeMillis()
+    var id: Int,
+    var createdAt: String,
+    var name: String,
+    var avatar: String,
+    var money: Int,
+    var lastRefreshed: Long = System.currentTimeMillis()
 )
